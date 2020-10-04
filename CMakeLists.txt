@@ -61,9 +61,19 @@ include(GoogleTest)
 
 file(GLOB_RECURSE testFiles RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.test.cc)
 foreach(file ${testFiles})
-  string(REPLACE ".test.cc" "__test" target ${file})
-  string(REPLACE "/" "__" target ${target})
-  add_executable(${target} ${file})
-  target_link_libraries(${target} template gtest_main)
-  gtest_discover_tests(${target})
+  string(REPLACE ".test.cc" ".cc" sourceFile ${file})
+
+  string(REPLACE ".cc" "" sourceTarget ${sourceFile})
+  string(REPLACE "/" "__" sourceTarget ${sourceTarget})
+  string(REPLACE ".test.cc" "__test" testTarget ${file})
+  string(REPLACE "/" "__" testTarget ${testTarget})
+
+  # Deal with VS Code complaining about include error.
+  # This is a temporary solution. I should handle files without tests too.
+  add_library(${sourceTarget} ${sourceFile})
+  target_link_libraries(${sourceTarget} template)
+
+  add_executable(${testTarget} ${file})
+  target_link_libraries(${testTarget} template gtest_main)
+  gtest_discover_tests(${testTarget})
 endforeach()
