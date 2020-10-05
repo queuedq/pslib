@@ -4,6 +4,7 @@ struct bipartite_matching {
   vector<vector<int>> adj; // Node indices are 1-based
   vector<int> S, T;
   vector<bool> vst;
+  int cnt = 0;
 
   bipartite_matching(int N, int M, vector<vector<int>> &adj): adj(adj) {
     S.resize(N+1);
@@ -15,7 +16,7 @@ struct bipartite_matching {
     int N = S.size()-1;
     for (int i=1; i<=N; i++) {
       fill(vst.begin(), vst.end(), false);
-      match_node(i);
+      cnt += match_node(i);
     }
   }
 
@@ -33,20 +34,3 @@ struct bipartite_matching {
     return false;
   }
 };
-
-// Usage
-void usage() {
-  vector<vector<int>> adj(6);
-  adj[1] = {2, 3};
-  adj[2] = {3};
-  adj[3] = {1, 4};
-  adj[4] = {3};
-  adj[5] = {4};
-
-  bipartite_matching B(5, 5, adj);
-  B.match();
-
-  for (int i=1; i<=5; i++) {
-    cout << i << " -> " << B.S[i] << endl;
-  }
-}
