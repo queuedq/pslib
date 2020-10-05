@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "fft.cc"
 
-TEST(FFT, FFTWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("FFT works") {
+  REQUIRE(false);
 }

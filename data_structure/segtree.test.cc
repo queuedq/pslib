@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "segtree.cc"
 
-TEST(Segtree, SegtreeWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("Segment tree works") {
+  REQUIRE(false);
 }

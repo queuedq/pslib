@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "centroid_decomp.cc"
 
-TEST(CentroidDecomp, CentroidDecompWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("Centroid decomposition works") {
+  REQUIRE(false);
 }

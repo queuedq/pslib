@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "print.cc"
 
-TEST(Print, PrintWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("Print works") {
+  REQUIRE(false);
 }

@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "number_theory.cc"
 
-TEST(NumberTheory, NumberTheoryWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("Number theory works") {
+  REQUIRE(false);
 }

@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "big_int.cc"
 
-TEST(BigInt, BigIntWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("Big integer works") {
+  REQUIRE(false);
 }

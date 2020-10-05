@@ -1,6 +1,7 @@
-#include <gtest/gtest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 #include "bipartite_matching.cc"
 
-TEST(BipartiteMatching, BipartiteMatchingWorks) {
-  EXPECT_TRUE(false);
+TEST_CASE("Bipartite matching works") {
+  REQUIRE(false);
 }
