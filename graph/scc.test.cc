@@ -36,6 +36,7 @@ TEST_CASE("SCC works") {
 
   auto comp = S.get_components();
 
+  REQUIRE(comp.size() == 3);
   REQUIRE(comp[2] == vector({1, 2, 5}));
   REQUIRE(comp[1] == vector({3, 4, 8}));
   REQUIRE(comp[0] == vector({6, 7}));

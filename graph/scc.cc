@@ -44,7 +44,7 @@ struct scc {
 
   // 0-based index
   vector<vector<int>> get_components() {
-    vector<vector<int>> comp(N);
+    vector<vector<int>> comp(scc_cnt);
     for (int i=1; i<=N; i++) comp[scc_id[i]-1].push_back(i);
     return comp;
   }
