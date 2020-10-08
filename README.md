@@ -10,6 +10,18 @@ A collection of algorithms for use in programming competitions / online judges.
 
 ## Building
 
+The compiler should be GCC to be able to use `bits/stdc++.h`.
+
+### Recommended
+
 Use CMake Tools for VS Code.
 
-Compiler: GCC (to be able to use `bits/stdc++.h`)
+### CLI
+
+```
+CXX=/usr/local/bin/g++-9 cmake -S . -B build
+cd build
+make
+```
+
+Change `CXX=...` part to set the compiler in your local environment.
