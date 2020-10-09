@@ -1,0 +1,23 @@
+{
+  "name": "team-note",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build.js",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "npm run build:md && npm run build:html",
+    "build:md": "mkdir -p build && node script/build.js < content/index.md > build/index.html",
+    "build:html": "parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "highlight.js": "^10.2.1",
+    "markdown-it": "^11.0.1",
+    "markdown-it-highlightjs": "^3.3.0",
+    "markdown-it-include": "^2.0.0",
+    "parcel-bundler": "^1.12.4",
+    "posthtml": "^0.13.3",
+    "posthtml-include": "^1.4.3"
+  }
+}
