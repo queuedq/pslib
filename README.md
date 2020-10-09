@@ -46,10 +46,10 @@ Change `CXX=...` part to set the compiler in your local environment.
 
 #### Math
 
-- **CRT**
 - Floor sum
 
 #### String
 
 - **Trie**
 - Rabin-Karp hashing
+- Suffix array
