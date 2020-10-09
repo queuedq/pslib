@@ -25,3 +25,31 @@ make
 ```
 
 Change `CXX=...` part to set the compiler in your local environment.
+
+## TODO
+
+### Algorithms to Add
+
+#### Data Structure
+
+- Dynamic segtree
+- Union-find tree
+- Sparse table
+- Sqaure root decomposition + **Mo's Algorithm**
+
+#### Graph
+
+- **LCA**
+- BCC
+- HLD
+- Euler tour
+
+#### Math
+
+- **CRT**
+- Floor sum
+
+#### String
+
+- **Trie**
+- Rabin-Karp hashing
