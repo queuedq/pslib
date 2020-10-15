@@ -9,10 +9,11 @@ TEST_CASE("Point operations work") {
   // | P
   // |       Q
   // + - - - - >
-  Point<lld> P(1, 2), Q(4, 1), R(3, 4);
+  using Point = Vec<lld>;
+  Point P(1, 2), Q(4, 1), R(3, 4);
 
   SECTION("basic operators") {
-    REQUIRE(P * 3 == Point<lld>(3, 6));
+    REQUIRE(P * 3 == Point(3, 6));
     REQUIRE(P * Q == 6);
   }
 
@@ -32,7 +33,7 @@ TEST_CASE("Point operations work") {
   }
 
   SECTION("length and angle") {
-    REQUIRE(length(Point<lld>(1, 0)) == Approx(1));
+    REQUIRE(length(Point(1, 0)) == Approx(1));
     REQUIRE(length(P) == Approx(sqrt(5)));
 
     REQUIRE(angle<lld>({1, 0}, {1, 1}) == Approx(PI/4));
