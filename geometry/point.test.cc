@@ -9,10 +9,10 @@ TEST_CASE("Point operations work") {
   // | P
   // |       Q
   // + - - - - >
-  Point P(1, 2), Q(4, 1), R(3, 4);
+  Point<lld> P(1, 2), Q(4, 1), R(3, 4);
 
   SECTION("basic operators") {
-    REQUIRE(3 * P == Point(3, 6));
+    REQUIRE(P * 3 == Point<lld>(3, 6));
     REQUIRE(P * Q == 6);
   }
 
@@ -26,17 +26,17 @@ TEST_CASE("Point operations work") {
 
     REQUIRE(ccw(P, Q, R) > 0);
     REQUIRE(ccw(P, R, Q) < 0);
-    REQUIRE(ccw({1, 1}, {2, 2}, {4, 4}) == 0);
+    REQUIRE(ccw<lld>({1, 1}, {2, 2}, {4, 4}) == 0);
 
     // TODO: Add area function
   }
 
   SECTION("length and angle") {
-    REQUIRE(Point(1, 0).length() == Approx(1));
-    REQUIRE(P.length() == Approx(sqrt(5)));
+    REQUIRE(length(Point<lld>(1, 0)) == Approx(1));
+    REQUIRE(length(P) == Approx(sqrt(5)));
 
-    REQUIRE(angle({1, 0}, {1, 1}) == Approx(PI/4));
+    REQUIRE(angle<lld>({1, 0}, {1, 1}) == Approx(PI/4));
     REQUIRE(angle(P, Q) == Approx(2.4329663815));
-    REQUIRE_THROWS_AS(angle({0, 0}, {1, 0}), invalid_argument);
+    REQUIRE_THROWS_AS(angle<lld>({0, 0}, {1, 0}), invalid_argument);
   }
 }
