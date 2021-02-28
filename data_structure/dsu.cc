@@ -23,6 +23,7 @@ struct disjoint_set {
   // Note: "union" is a keyword in C++
   void merge(int x, int y) {
     x = find(x); y = find(y);
+    if (x == y) return;
     if (s[x] < s[y]) swap(x, y);
     p[y] = x;
     s[x] += s[y];

@@ -29,3 +29,8 @@
 
 ```cpp file=../misc/coord_compression.test.cc
 ```
+
+### Custom comparator
+
+```cpp file=../misc/custom_cmp.cc
+```

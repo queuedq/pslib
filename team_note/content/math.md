@@ -27,6 +27,6 @@
 
 #### Usage
 
-```cpp file=../math/fft.cc
+```cpp file=../math/fft.test.cc
 ```
 

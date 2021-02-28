@@ -4,11 +4,29 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Team Note</title>
+  <title>(Team Name) Team Note</title><!-- TODO: Use variable -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">
   <style>
+    body {
+      font-size: 14px;
+    }
+    h1 {
+      font-size: 4em;
+    }
     code {
-      background: #f7f7f7 !important;
+      background: white !important;
+      border: 1px solid #b8c5d8;
+    }
+
+    .page {
+      height: 80vh;
+      page-break-after: always;
+    }
+    .cover {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 
@@ -16,6 +34,11 @@
 </head>
 
 <body>
+  <div class="page cover">
+    <h1 style="font-size: 4em;">(Team Name) Team Note</h1>
+    <div style="font-size: 2em;">(Organization)</div>
+    <div style="font-size: 2em;">(Names)</div>
+  </div>
   <include src="./build/index.html"></include>
 </body>
 </html>
