@@ -1,7 +1,6 @@
 #include <template.h>
 #include "point.cc"
 
-using Point = Vec<lld>;
 int N;
 vector<Point> P, conv;
 
