@@ -4,19 +4,11 @@
 
 TEST_CASE("2-SAT works") {
   // (a | !b) & (!a | b) & (!a | !b) & (a | !c)
+  int N = 3;
   pii prob[4] = {{0, 3}, {1, 2}, {1, 3}, {0, 5}};
 
-  int N = 3*2;
-  vector<vector<int>> g(N*2), gt(N*2);
-
-  for (int i=0; i<4; i++) {
-    g[prob[i].first^1].push_back(prob[i].second);
-    g[prob[i].second^1].push_back(prob[i].first);
-    gt[prob[i].first].push_back(prob[i].second^1);
-    gt[prob[i].second].push_back(prob[i].first^1);
-  }
-
-  two_sat S(N, g, gt);
+  two_sat S(N);
+  for (int i=0; i<4; i++) S.add_clause(prob[i].first, prob[i].second);
 
   REQUIRE(S.solve());
   REQUIRE(S.ans[0] == false);
