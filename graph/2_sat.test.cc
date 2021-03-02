@@ -18,8 +18,8 @@ TEST_CASE("2-SAT works") {
 
   two_sat S(N, g, gt);
 
-  REQUIRE(S.solve_2SAT());
-  REQUIRE(S.assignment[0] == false);
-  REQUIRE(S.assignment[1] == false);
-  REQUIRE(S.assignment[2] == false);
+  REQUIRE(S.solve());
+  REQUIRE(S.ans[0] == false);
+  REQUIRE(S.ans[1] == false);
+  REQUIRE(S.ans[2] == false);
 }
