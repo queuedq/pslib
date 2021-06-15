@@ -3,7 +3,7 @@
 template<class T>
 ostream& operator <<(ostream& os, vector<T> vec) {
   os << "[";
-  for (int i=0; i<vec.size()-1; i++) os << vec[i] << ", ";
+  for (int i=0; i<(int)vec.size()-1; i++) os << vec[i] << ", ";
   if (!vec.empty()) os << vec.back();
   os << "]";
   return os;
