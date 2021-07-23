@@ -23,4 +23,4 @@ lld cross(Point a, Point b) { return a.x*b.y - a.y*b.x; }
 lld ccw(Point a, Point b, Point c) { return cross(b-a, c-a); }
 
 double length(Point a) { return sqrt(a*a); }
-double angle(Point a, Point b) { return atan2(a * b, cross(a, b)); }
+double angle(Point a, Point b) { return atan2(cross(a, b), a * b); }
