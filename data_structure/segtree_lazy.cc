@@ -1,5 +1,6 @@
 // http://boj.kr/0666a2bbbb19489eb846633042505916
 #include <template.h>
+
 const int ST = 1<<20; // 1 << (int)ceil(log2(N))
 lld seg[ST*2], lazy[ST*2];
 

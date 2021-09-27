@@ -1,5 +1,6 @@
 // http://boj.kr/85713670c97541b89d44c2daa7cbdb64
 #include <template.h>
+
 const int ST = 1<<20; // 1 << (int)ceil(log2(N))
 lld seg[ST*2];
 
