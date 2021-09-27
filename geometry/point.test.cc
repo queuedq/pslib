@@ -36,6 +36,6 @@ TEST_CASE("Point operations work") {
     REQUIRE(length(P) == Approx(sqrt(5)));
 
     REQUIRE(angle({1, 0}, {1, 1}) == Approx(PI/4));
-    REQUIRE(angle(P, Q) == Approx(2.4329663815));
+    REQUIRE(angle(P, Q) == Approx(-0.8621700547));
   }
 }
