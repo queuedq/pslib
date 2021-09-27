@@ -1,3 +1,5 @@
+#include <template.h>
+
 struct Node { int a, b; };
 bool cmp(Node x, Node y) { return x.a < y.a; }
 
