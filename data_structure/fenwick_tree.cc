@@ -1,19 +1,18 @@
+// http://boj.kr/47f2c20f58cb447193c170d49a9f8f5c
 #include <template.h>
 
 // 1-based index
 struct fenwick_tree {
-  vector<lld> A;
-
-  fenwick_tree(int size) { A.resize(size+1); }
+  vector<lld> F;
+  fenwick_tree(int sz) { F.resize(sz+1); }
 
   void add(int i, lld x) {
-    for (; i < A.size(); i += i & -i) A[i] += x;
+    for (; i<F.size(); i += i&-i) F[i] += x;
   }
 
-  // Returns sum of A[1..i], or 0 if i = 0
-  lld sum(int i) {
+  lld sum(int i) { // [1, i]
     lld s = 0;
-    for (; i > 0; i -= i & -i) s += A[i];
+    for (; i>0; i -= i&-i) s += F[i];
     return s;
   }
 };
