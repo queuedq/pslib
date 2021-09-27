@@ -28,7 +28,7 @@ TEST_CASE("Point operations work") {
     REQUIRE(ccw(P, R, Q) < 0);
     REQUIRE(ccw({1, 1}, {2, 2}, {4, 4}) == 0);
 
-    // TODO: Add area function
+    REQUIRE(area({P, Q, R}) == 4);
   }
 
   SECTION("length and angle") {

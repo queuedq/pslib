@@ -17,10 +17,19 @@ struct Point {
   lld operator *(Point a) const { return x*a.x + y*a.y; }
 };
 
+// print
 ostream& operator <<(ostream& os, Point a) { return os << "(" << a.x << ", " << a.y << ")"; }
 
+// cross product stuffs
 lld cross(Point a, Point b) { return a.x*b.y - a.y*b.x; }
 lld ccw(Point a, Point b, Point c) { return cross(b-a, c-a); }
+double area(vector<Point> P) {
+  lld sum = 0;
+  for (int i = 0; i < P.size()-1; i++) sum += cross(P[i], P[i+1]);
+  sum += cross(P.back(), P[0]);
+  return abs(sum) / 2.;
+}
 
+// real numbers
 double length(Point a) { return sqrt(a*a); }
 double angle(Point a, Point b) { return atan2(cross(a, b), a * b); }
