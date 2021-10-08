@@ -1,5 +1,6 @@
 #include <template.h>
 
+// print vector
 template<class T>
 ostream& operator <<(ostream& os, vector<T> vec) {
   os << "[";
@@ -9,6 +10,7 @@ ostream& operator <<(ostream& os, vector<T> vec) {
   return os;
 }
 
+// convert array to string (to print)
 template<class T>
 string to_string(T arr[], int size) {
 	ostringstream os;
@@ -17,4 +19,10 @@ string to_string(T arr[], int size) {
   if (size > 0) os << arr[size-1];
   os << "]";
 	return os.str();
+}
+
+// print binary digits of integer
+// https://codeforces.com/blog/entry/74684
+void print_binary(int n) {
+  cout << bitset<8>(n) << endl;
 }
