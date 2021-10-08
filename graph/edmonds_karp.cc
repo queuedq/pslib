@@ -1,6 +1,6 @@
+// https://cp-algorithms.com/graph/edmonds_karp.html
 #include <template.h>
 
-// https://cp-algorithms.com/graph/edmonds_karp.html
 const int INF = 1e9;
 int N;
 vector<vector<int>> capacity;
