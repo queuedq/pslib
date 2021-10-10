@@ -11,10 +11,12 @@ A collection of algorithms for use in programming competitions / online judges.
 ## Building
 
 The compiler should be GCC to be able to use `bits/stdc++.h`.
+We use CMake for building this project.
 
 ### Recommended
 
 Use CMake Tools for VS Code.
+Run `CMake: Configure` every time you add a new source file.
 
 ### CLI
 
