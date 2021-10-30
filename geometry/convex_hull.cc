@@ -1,58 +1,23 @@
+// https://github.com/kth-competitive-programming/kactl/blob/main/content/geometry/ConvexHull.h
+// http://boj.kr/6c3dd246a9fc489ea8ee57e2ba27ecaa
 #include <template.h>
 #include "point.cc"
 
-int N;
-vector<Point> P, conv;
+vector<Point> convex_hull(vector<Point> P) {
+	if (P.size() <= 1) return P;
+	sort(all(P));
+	vector<Point> Q(P.size()+1);
 
-lld dist(Point a, Point b) { return (a - b) * (a - b); }
-
-auto polarCmp(Point P0) {
-  return [P0](Point a, Point b) {
-    lld theta = ccw(P0, a, b);
-    if (theta == 0) return dist(a, P0) < dist(b, P0);
-    return theta > 0;
-  };
-}
-
-void hull() {
-  // Leftmost Point & Sort
-  Point P0 = P[0];
-  sort(P.begin()+1, P.end(), polarCmp(P0));
-
-  // Filter
-  vector<Point> Q;
-  Q.push_back(P0);
-  for (int i = 1; i < P.size(); i++) {
-    while (i < P.size()-1 && ccw(P0, P[i], P[i+1]) == 0) i++;
-    Q.push_back(P[i]);
-  }
-
-  // Convex Hull
-  if (Q.size() == 0) return;
-  if (Q.size() == 1) return conv.push_back(Q[0]);
-  conv.push_back(Q[0]);
-  conv.push_back(Q[1]);
-  for (int i = 2; i < Q.size(); i++) {
-    Point A = conv.back(), B = conv.rbegin()[1];
-    while (ccw(B, A, Q[i]) <= 0) {
-      conv.pop_back();
-      A = conv.back();
-      B = conv.rbegin()[1];
+	int s = 0, i = 0;
+  for (auto dir: {0, 1}) {
+    for (auto p: P) {
+      while (i-2 >= s && ccw(Q[i-2], Q[i-1], p) <= 0) i--;
+      Q[i++] = p;
     }
-    conv.push_back(Q[i]);
-  }
-}
-
-void example() {
-  P.clear();
-  conv.clear();
-
-  cin >> N;
-  for (int i=0; i<N; i++) {
-    lld x, y; cin >> x >> y;
-    P.push_back({x, y});
+    s = --i; reverse(all(P));
   }
 
-  sort(P.begin(), P.end());
-  hull();
+	Q.resize(i);
+  if (i == 2 && Q[0] == Q[1]) Q.resize(1); // all points are same
+  return Q;
 }
