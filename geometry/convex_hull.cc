@@ -5,11 +5,11 @@
 #include "point.cc"
 
 vector<Point> convex_hull(vector<Point> P) {
-	if (P.size() <= 1) return P;
-	sort(all(P));
-	vector<Point> Q(P.size()+1);
+  if (P.size() <= 1) return P;
+  sort(all(P));
+  vector<Point> Q(P.size()+1);
 
-	int s = 0, i = 0;
+  int s = 0, i = 0;
   for (auto dir: {0, 1}) {
     for (auto p: P) {
       while (i-2 >= s && ccw(Q[i-2], Q[i-1], p) <= 0) i--;
@@ -18,13 +18,13 @@ vector<Point> convex_hull(vector<Point> P) {
     s = --i; reverse(all(P));
   }
 
-	Q.resize(i);
+  Q.resize(i);
   if (i == 2 && Q[0] == Q[1]) Q.resize(1); // all points are same
   return Q;
 }
 
 // rotating calipers
-array<Point, 2> diameter(vector<Point> &P) {
+array<Point, 2> diameter(const vector<Point> &P) {
   int n = P.size();
   pair<lld, array<Point, 2>> res = {0, {P[0], P[0]}};
   if (n == 1) return res.second;
