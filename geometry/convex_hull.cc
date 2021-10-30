@@ -1,6 +1,6 @@
 // https://github.com/kth-competitive-programming/kactl/blob/main/content/geometry/ConvexHull.h
 // https://github.com/kth-competitive-programming/kactl/blob/main/content/geometry/HullDiameter.h
-// http://boj.kr/5934a8636ec94679b19d52d936985fa7
+// http://boj.kr/abb28b495dad4c319c80755f0d7599ae
 #include <template.h>
 #include "point.cc"
 
