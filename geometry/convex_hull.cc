@@ -21,3 +21,17 @@ vector<Point> convex_hull(vector<Point> P) {
   if (i == 2 && Q[0] == Q[1]) Q.resize(1); // all points are same
   return Q;
 }
+
+// rotating calipers
+array<Point, 2> diameter(vector<Point> &P) {
+  int n = P.size();
+  pair<lld, array<Point, 2>> res = {0, {P[0], P[0]}};
+  if (n == 1) return res.second;
+  for (int i = 0, j = 1; i < j; i++) {
+    for (;; j = (j+1) % n) {
+      res = max(res, {dist2(P[i], P[j]), {P[i], P[j]}});
+      if (cross(P[i+1] - P[i], P[(j+1) % n] - P[j]) <= 0) break;
+    }
+  }
+  return res.second;
+}

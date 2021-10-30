@@ -1,3 +1,4 @@
+#pragma once
 #include <template.h>
 
 const double PI = acos(-1);
@@ -30,6 +31,8 @@ double area(vector<Point> P) {
   return abs(sum) / 2.;
 }
 
-// real numbers
+// length and angle
 double length(Point a) { return sqrt(a*a); }
+lld dist2(Point a, Point b) { return (b-a)*(b-a); }
+double dist(Point a, Point b) { return sqrt((b-a)*(b-a)); }
 double angle(Point a, Point b) { return atan2(cross(a, b), a * b); }
