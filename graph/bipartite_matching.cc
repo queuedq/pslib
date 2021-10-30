@@ -49,6 +49,6 @@ struct bipartite_matching {
     fill(vst+1, vst+N+1, 0);
     for (int u=1; u<=N; u++) { if (!S[u]) dfs(u); }
     for (int u=1; u<=N; u++) { if (!vst[u]) lc.push_back(u); }
-    for (int v=1; v<=M; v++) { if (rvst[v]) rc.push_back(v); } // M
+    for (int v=1; v<=M; v++) { if (rvst[v]) rc.push_back(v); } // M, not N!
   }
 };
