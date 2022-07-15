@@ -1,33 +1,22 @@
 #include <template.h>
 
-vector<int> failure(string P) {
-  vector<int> pi(P.size());
-  int j = 0;
-  for (int i=1; i<P.size(); i++) {
-    while (j > 0 && P[i] != P[j]) j = pi[j-1];
-    if (P[i] == P[j]) pi[i] = ++j;
-    else pi[i] = 0;
+vector<int> failure(const string &S) {
+  vector<int> pi(S.size());
+  for (int i=1; i<S.size(); i++) {
+    int k = pi[i-1];
+    while (k && S[i] != S[k]) k = pi[k-1];
+    pi[i] = k + (S[i] == S[k]);
   }
   return pi;
 }
 
-vector<int> matches(string S, string P) {
+// don't use when P is empty
+vector<int> kmp(const string &S, const string &P) {
   int s = S.size(), p = P.size();
-  vector<int> ans;
-
-  vector<int> pi = failure(P);
-  int j = 0;
-  for (int i=0; i<s; i++) {
-    while (j > 0 && S[i] != P[j]) j = pi[j-1];
-    if (S[i] == P[j]) {
-      if (j == p-1) {
-        ans.push_back(i-p+1);
-        j = pi[j];
-      } else {
-        j++;
-      }
-    }
+  auto pi = failure(P+'\0'+S);
+  vector<int> res;
+  for (int i=p+1; i<s+p+1; i++) {
+    if (pi[i] == p) res.push_back(i-p*2);
   }
-
-  return ans;
+  return res;
 }

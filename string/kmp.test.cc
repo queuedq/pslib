@@ -8,7 +8,7 @@ TEST_CASE("KMP failure function is calculated") {
 }
 
 TEST_CASE("KMP finds all substrings") {
-  REQUIRE(matches("aaaa", "aa") == vector({0, 1, 2}));
-  REQUIRE(matches("abaababaa", "aba") == vector({0, 3, 5}));
-  REQUIRE(matches("aaaa", "b").empty());
+  REQUIRE(kmp("aaaa", "aa") == vector({0, 1, 2}));
+  REQUIRE(kmp("abaababaa", "aba") == vector({0, 3, 5}));
+  REQUIRE(kmp("aaaa", "b").empty());
 }
