@@ -3,9 +3,9 @@
 struct disjoint_set {
   vector<int> p, s;
 
-  disjoint_set(int sz) {
-    p.resize(sz); s.resize(sz);
-    for (int i=0; i<sz; i++) { p[i] = i; s[i] = 1; }
+  disjoint_set(int n) {
+    p.resize(n); s.resize(n);
+    for (int i=0; i<n; i++) { p[i] = i; s[i] = 1; }
   }
 
   int find(int x) {

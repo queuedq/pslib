@@ -4,7 +4,7 @@
 // 1-based index
 struct fenwick_tree {
   vector<lld> F;
-  fenwick_tree(int sz) { F.resize(sz+1); }
+  fenwick_tree(int n) { F.resize(n+1); }
 
   void add(int i, lld x) {
     for (; i<F.size(); i += i&-i) F[i] += x;
