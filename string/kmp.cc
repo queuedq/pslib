@@ -1,3 +1,4 @@
+// Reference: https://github.com/kth-competitive-programming/kactl/blob/main/content/strings/KMP.h
 #include <template.h>
 
 vector<int> failure(const string &S) {
