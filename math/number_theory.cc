@@ -1,10 +1,7 @@
 #include <template.h>
 
 lld gcd(lld a, lld b) {
-  while (b > 0) {
-    a = a % b;
-    swap(a, b);
-  }
+  while (b > 0) { a %= b; swap(a, b); }
   return a;
 }
 
