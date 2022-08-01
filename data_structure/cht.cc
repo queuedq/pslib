@@ -1,36 +1,31 @@
+// Lines should be aligned left to right
+// => (dec slope, min query) or (inc slope, max query)
 #include <template.h>
 
-using llf = long double;
-
-// decreasing slope, min query -> left intersection, left to right
 struct Line {
-  lld a, b; llf s = 0;
-  llf intersection(Line l) { return (llf)(l.b - b) / (a - l.a); }
-  bool operator <(const Line l) const { return s < l.s; }
+  lld a, b; double l = -INFINITY, r = INFINITY;
+  double inter(Line L) { return -(double)(b-L.b) / (a-L.a); }
+  lld get(lld x) { return a*x+b; }
+  bool operator <(const Line &L) const { return r < L.r; }
 };
 
 struct CHT {
-  vector<Line> lines;
+  deque<Line> dq;
 
-  void add(Line l) {
-    while (lines.size() > 0) {
-      l.s = l.intersection(lines.back());
-      if (lines.back().s < l.s) break; // left to right
-      lines.pop_back();
-    }
-    lines.push_back(l);
+  void push(lld a, lld b) {
+    Line L = {a, b};
+    while (sz(dq) && dq.back().inter(L) <= dq.back().l) dq.pop_back();
+    if (sz(dq)) dq.back().r = L.l = dq.back().inter(L);
+    dq.push_back(L);
   }
 
-  lld query(lld x) {
-    // left to right
-    auto l = lower_bound(lines.begin(), lines.end(), (Line){0, 0, (llf)x});
-    l--;
-    return l->a * x + l->b;
+  lld min_pop(lld x) { // inc query, O*(1)
+    while (dq.front().r <= x) dq.pop_front();
+    return dq.front().get(x);
   }
 
-  void debug() {
-    printf("======== CHT ========\n");
-    for (Line l: lines) printf("(%lld)x + (%lld) / s = %Lf\n", l.a, l.b, l.s);
-    printf("=====================\n");
+  lld min(lld x) { // any query, O(log N)
+    auto it = lower_bound(dq.begin(), dq.end(), (Line){0, 0, 0, (double)x});
+    return it->get(x);
   }
 };
