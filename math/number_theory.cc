@@ -6,9 +6,9 @@ lld gcd(lld a, lld b) {
 }
 
 lld egcd(lld a, lld b, lld &x, lld &y) {
-	if (!b) return x = 1, y = 0, a;
-	lld g = egcd(b, a%b, y, x);
-	return y -= a/b * x, g;
+  if (!b) return x = 1, y = 0, a;
+  lld g = egcd(b, a%b, y, x);
+  return y -= a/b * x, g;
 }
 
 lld modinv(lld a, lld m) {
@@ -18,10 +18,10 @@ lld modinv(lld a, lld m) {
 }
 
 lld modpow(lld b, lld e, lld m) {
-	lld r = 1;
-	for (; e; b = b*b % m, e/=2)
-		if (e&1) r = r*b % m;
-	return r;
+  lld r = 1;
+  for (; e; b = b*b % m, e/=2)
+    if (e&1) r = r*b % m;
+  return r;
 }
 
 lld phi(lld n) {

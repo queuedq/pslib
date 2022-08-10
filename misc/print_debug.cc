@@ -13,12 +13,12 @@ ostream& operator <<(ostream& os, vector<T> vec) {
 // convert array to string (to print)
 template<class T>
 string to_string(T arr[], int size) {
-	ostringstream os;
+  ostringstream os;
   os << "[";
-	for (int i = 0; i<size-1; i++) os << arr[i] << ",";
+  for (int i = 0; i<size-1; i++) os << arr[i] << ",";
   if (size > 0) os << arr[size-1];
   os << "]";
-	return os.str();
+  return os.str();
 }
 
 // print binary digits of integer
