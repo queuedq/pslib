@@ -14,8 +14,3 @@
 
 ```cpp file=../geometry/convex_hull.cc
 ```
-
-#### Usage
-
-```cpp file=../geometry/convex_hull.test.cc
-```

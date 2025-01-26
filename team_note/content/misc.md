@@ -1,23 +1,13 @@
 ## Misc.
 
-### Print Various Things
+### Print Debugging
 
-```cpp file=../misc/print.cc
-```
-
-#### Usage
-
-```cpp file=../misc/print.test.cc
+```cpp file=../misc/print_debug.cc
 ```
 
 ### Big integer
 
 ```cpp file=../misc/big_int.cc
-```
-
-#### Usage
-
-```cpp file=../misc/big_int.test.cc
 ```
 
 ### Coordinate compression

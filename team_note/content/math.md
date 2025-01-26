@@ -10,16 +10,6 @@
 ```cpp file=../math/number_theory.test.cc
 ```
 
-### CRT
-
-```cpp file=../math/crt.cc
-```
-
-#### Usage
-
-```cpp file=../math/crt.test.cc
-```
-
 ### FFT
 
 ```cpp file=../math/fft.cc

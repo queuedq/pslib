@@ -34,8 +34,3 @@
 
 ```cpp file=../graph/centroid_decomp.cc
 ```
-
-#### Usage
-
-```cpp file=../graph/centroid_decomp.test.cc
-```

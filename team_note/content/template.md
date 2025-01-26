@@ -1,4 +1,4 @@
 ## Template
 
-```cpp file=../template/template.cc
+```cpp file=../include/template.h
 ```
